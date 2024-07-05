@@ -1,6 +1,7 @@
 import { Column, CreateDateColumn, DeleteDateColumn, Entity, OneToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import AbstractEntity from "./abstract-entity";
 import Address from "./address.entity";
+import { Role } from "../utils/role.enum";
 
 @Entity()
 class Employee extends AbstractEntity{
@@ -16,6 +17,10 @@ class Employee extends AbstractEntity{
         onDelete: "CASCADE"
       })
       address: Address;
+      @Column({nullable:true})
+      role:Role;
+      @Column({nullable:true})
+      password:string
     
 }
 export default Employee;

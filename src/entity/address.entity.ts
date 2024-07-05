@@ -9,7 +9,7 @@ class Address extends AbstractEntity{
     line:string;
     
     @Column()
-    pincode:number;
+    pincode:string;
     @OneToOne(() => Employee, (employee) => employee.address)
     @JoinColumn()
     employee: Employee;

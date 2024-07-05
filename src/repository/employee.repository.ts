@@ -9,20 +9,23 @@ export class EmployeeRepository{
     }
     find=async()=>{
         
-        return this.repository.find();
+        return this.repository.find({relations:["address"]});
     }
     findOneBy=async (filter:Partial<Employee>)=>{
         
-        return this.repository.findOne({where:filter});
+        return this.repository.findOne({where:filter,relations:["address"]});
     }
     create=async (newEmployee)=>{
-        
+
         
         return this.repository.save(newEmployee);
     }
     removeBy=async (filter:FindOptionsWhere<Employee>)=>{
       
         return this.repository.softDelete(filter);
+    }
+    softRemove=async(employee:Employee)=>{
+        return this.repository.softRemove(employee);
     }
    
 
