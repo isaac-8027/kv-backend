@@ -9,11 +9,11 @@ export class EmployeeRepository{
     }
     find=async()=>{
         
-        return this.repository.find({relations:["address"]});
+        return this.repository.find({relations:["address","department"]});
     }
     findOneBy=async (filter:Partial<Employee>)=>{
         
-        return this.repository.findOne({where:filter,relations:["address"]});
+        return this.repository.findOne({where:filter,relations:["address","department"]});
     }
     create=async (newEmployee)=>{
 

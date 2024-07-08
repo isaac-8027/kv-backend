@@ -11,6 +11,7 @@ const authorize =async(
 )=>{
     try{
         const token = getTokenFromRequestHeader(req);
+        console.log(token)
         const payload = jsonwebtoken.verify(token, JWT_SECRET);
         req.name=(payload as jwtPayload).name;
         req.email=(payload as jwtPayload).email;
@@ -22,8 +23,8 @@ const authorize =async(
     }
 }
 const getTokenFromRequestHeader = (req: RequestWithUser)=>{
-    const bearerToken=req.header("Authentication");
-    const token=bearerToken ? bearerToken.replace("Bearer",""):"";
+    const bearerToken=req.header("Authorization");
+    const token=bearerToken ? bearerToken.replace("Bearer ",""):"";
     return token;
 
 }

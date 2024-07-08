@@ -5,11 +5,12 @@ import Employee from "./employee.entity";
 @Entity()
 class Address extends AbstractEntity{
     
-    @Column()
+    @Column({nullable:true})
     line:string;
     
-    @Column()
+    @Column({nullable:true})
     pincode:string;
+    
     @OneToOne(() => Employee, (employee) => employee.address)
     @JoinColumn()
     employee: Employee;

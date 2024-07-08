@@ -1,4 +1,4 @@
-class IncorrectPasswordExtention extends Error{
+class IncorrectPasswordException extends Error{
 
     public status: number;
     constructor(status:number,message:string){
@@ -6,4 +6,4 @@ class IncorrectPasswordExtention extends Error{
     this.status=status;
     }
 }
-export default IncorrectPasswordExtention
+export default IncorrectPasswordException

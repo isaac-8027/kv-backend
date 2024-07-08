@@ -6,12 +6,13 @@ import bodyParser from "body-parser";
 import dataSource from "./db/data-source.db";
 import HttpException from "./exceptions/http.exeptions";
 import errorMiddleware from "./middleware/error.middleware";
+import departmentRouter from "./router/department.router";
 
 const server = new express();
 server.use(bodyParser.json());
 server.use(loggerMiddleware);
 server.use('/employee',employeeRouter);
-
+server.use('/department',departmentRouter);
 server.use(errorMiddleware);
 server.get("/", (req, res) => {
   console.log(req.url);
