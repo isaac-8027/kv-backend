@@ -39,5 +39,13 @@ export class CreateEmployeeDto{
     @Type(()=> CreateDepartmentDto)
     department:CreateDepartmentDto
 
+    @IsNotEmpty()
+    @IsString()
+    experiance:string
+
+    @IsNotEmpty()
+    @IsString()
+    statuss:string
+
 
 }

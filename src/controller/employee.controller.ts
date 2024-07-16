@@ -117,7 +117,11 @@ export class EmployeeController{
             createEmployeeDto.age,
             createEmployeeDto.role,
             createEmployeeDto.password,
-            createEmployeeDto.department
+            createEmployeeDto.department,
+            createEmployeeDto.experiance,
+            createEmployeeDto.statuss,
+            
+
         )
         res.status(200).send(savedEmployee);
     }
@@ -161,7 +165,9 @@ export class EmployeeController{
                 employeeDto.age,
                 employeeDto.role,
                 employeeDto.password,
-                employeeDto.department
+                employeeDto.department,
+                employeeDto.experiance,
+                employeeDto.statuss
             )
             res.status(200).send(savedEmployee);
         }

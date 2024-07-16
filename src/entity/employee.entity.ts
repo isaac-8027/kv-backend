@@ -31,6 +31,10 @@ class Employee extends AbstractEntity{
 
       @Column({nullable:true})
       password:string
+      @Column({nullable:true})
+      experiance:string;
+      @Column({nullable:true})
+      statuss:string;
     
 }
 export default Employee;

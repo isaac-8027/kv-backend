@@ -45,13 +45,15 @@ export class EmployeeService{
     getEmployeeByID=(id:number)=>{
         return this.employeeRepository.findOneBy({id});
     }
-    createEmployee=async(email: string, name: string, address: any, age: number, role: Role, password: string, department: any)=>{
+    createEmployee=async(email: string, name: string, address: any, age: number, role: Role, password: string, department: any, experiance:any,statuss:any)=>{
         const employee = new Employee();
         employee.email = email;
         employee.name = name;
         employee.age=age;
         employee.role=role;
         employee.password=password?await bcrypt.hash(password,10): "";
+        employee.experiance=experiance;
+        employee.statuss=statuss;
         console.log(employee.password)
 
         const newEmployee = employee;
@@ -71,13 +73,15 @@ export class EmployeeService{
         return this.employeeRepository.softRemove(employee);
 
     }
-    updateAnEmployee=async(id:number,email:string,name:string,address:any,age:number,role:Role,password:string,department:any)=>{
+    updateAnEmployee=async(id:number,email:string,name:string,address:any,age:number,role:Role,password:string,department:any, experiance:any,statuss:any)=>{
         const employees = await this.employeeRepository.findOneBy({id});
         
         employees.email = email;
         employees.name = name;
         employees.age=age;
         employees.role=role;
+        employees.experiance=experiance;
+        employees.statuss=statuss;
         employees.password=password?await bcrypt.hash(password,10): "";;
         
         employees.address.line=address.line;
